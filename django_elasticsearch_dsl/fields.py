@@ -56,7 +56,7 @@ class DEDField(Field):
             ):
                 try:
                     instance = getattr(instance, attr)
-                except ObjectDoesNotExist:
+                except (ObjectDoesNotExist, ValueError):
                     return None
                 except (TypeError, AttributeError):
                     try:
